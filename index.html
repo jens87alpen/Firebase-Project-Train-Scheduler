@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Train Schedule</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <!-- Moment.js Reference -->
+    <!-- <script src="http://momentjs.com/downloads/moment.js"></script>   -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <style>
+        .panel-body a 
+        {
+            word-break:break-all
+        }
+    </style>
+</head>
+<body style="background-image: url(http://www.azaniapost.com/images/haberler/2017/09/bombardier_support_tazara_funding_arrangement_via_sweden_kingdom_h6688_d49bc.jpg) ; background-size: cover;">
+    <div class="container" style="background-color: white; opacity: 0.97;">
+    <!-- Jumbotron for Title -->
+    <div class="jumbotron" style="background-color: rgb(81, 63, 35); color: white;">
+        <h1 class="text-center"><strong>Train Schedule</strong></h1>
+        <h4>Current Time:</h4>
+        <div style="font-weight: bolder; font-size: 25px;" id="currentTime"></div>
+    </div>
+    <!-- Row for Searching New York Times -->
+    <div class="row">
+        <div class="col-sm-12">
+        <br>
+        <div class="row">
+        <div class="col-sm-12">
+        <br>
+            <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
+            <div class="Panel with panel-danger class" >
+                <!-- Panel Heading for the retrieved articles box -->
+                <div class="panel-heading" >
+                    <h3 class="panel-title"><strong>Current Time Schedule</strong></h3>
+               </div>
+            
+                <!-- This main panel will hold each of the resulting articles -->
+                <div class="panel-body" id="wellSection">
+                  <div class="myTable">            
+                   <table class="table">
+                  
+                  <style>
+                    table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                    }
+
+                    td, th {
+                        border: 1px solid #dddddd;
+                        text-align: left;
+                        padding: 8px;
+                    }
+
+                    tr:nth-child(even) {
+                        background-color: #dddddd;
+                    }
+                  </style>
+
+                  <table class="table table-hover" id='train-table'>
+                      <thead>
+                        <tr>
+                          <th>Train Name</th>
+                          <th>Destination</th>
+                          <th>Frequency (min)</th>
+                          <th>Next arrival</th>
+                          <th>Minutes away</th>
+                        </tr>
+                      </thead>
+                      
+                      <tbody>
+                      </tbody>
+
+                  </table>
+                </div>
+            </div>
+    
+            <!-- First panel is for handling the search parameters -->
+            <div class="Panel with panel-danger class">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Add a Train</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <!-- Here we create an HTML Form for handling the inputs-->
+                    <form>
+                      <!-- Here we create the text box for capturing Employee Name-->
+                      <div class="form-group">
+                        <label for="trainName">Train Name:</label>
+                        <input class="form-control" id="trainName" type="text">
+                      </div>
+                      <!-- Here we create the text box for capturing Role-->
+                      <div class="form-group">
+                        <label for="destination">Destination:</label>
+                        <input class="form-control"  id="destination" type="text">
+                      </div>
+                      <!-- Here we capture the Start Date Parameter-->
+                      <div class="form-group">
+                        <label for="frequency">First Train (HH:mm):</label>
+                        <input class="form-control"  id="firstTrain" type="text">
+                      </div>
+                      <!-- Here we capture the End Year Parameter -->
+                      <div class="form-group">
+                        <label for="frequency">Frequency (min):</label>
+                        <input class="form-control"  id="frequency" type="text">
+                      </div>
+
+                      <!-- Here we have our final submit button -->
+                      <button class="btn btn-danger" id="submitButton"><i class="fa fa-search"></i> Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- This row will handle all of the retrieved articles -->
+    
+    <!-- Footer Region -->
+    <div class="row">
+        <div class="col-sm-12">
+            
+            <!-- Line Break followed by closing -->
+            <hr>
+            <h5 class="text-center"><small>Made by Jens Hoffmann </small></h5>
+        </div>
+    </div>
+</div>
+
+   <script type="text/javascript" src="assets/app.js"></script>
+</body>
+</html>
+
